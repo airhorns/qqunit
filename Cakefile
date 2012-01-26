@@ -1,0 +1,13 @@
+muffin = require 'muffin'
+
+option '-w', '--watch', 'continue to watch the files and rebuild them when they change'
+option '-c', '--commit', 'operate on the git index instead of the working tree'
+
+task 'build', 'compile qqunit', (options) ->
+  muffin.run
+    files: './src/**/*'
+    options: options
+    map:
+      'src/(.+).coffee'  : (matches) -> muffin.compileScript(matches[0], "lib/#{matches[1]}.js", options)
+
+  console.log "Watching src..." if options.watch
