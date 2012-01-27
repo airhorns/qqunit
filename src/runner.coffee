@@ -37,6 +37,4 @@ module.exports = Runner =
       console.log "Finished. #{stats.passed} of #{stats.total} assertions passed (#{stats.failed} failures)."
       callback?(stats)
 
-    debugger
-
     QUnit.start()

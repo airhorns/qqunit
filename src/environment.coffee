@@ -15,10 +15,4 @@ global.QUnit = QUnit
 for k, v of QUnit
   global[k] = v
 
-process.on 'SIGINT', ->
-  if QUnit.config.current?
-    console.warn "Quitting..."
-    console.warn "Current test was #{QUnit.config.current.module}: #{QUnit.config.current.testName}"
-  process.exit 1
-
 exports.jsdom = jsdom
