@@ -14,14 +14,15 @@ module.exports = Runner =
     try
       startTime = (new Date).getTime()
 
+      if process.env['FILTER']
+        console.warn "Filter: #{process.env['FILTER']}"
+        QUnit.config.filter = process.env['FILTER']
+
       for file in files
         require file
 
       failures = {}
       currentFailureQueue = false
-
-      if process.env['FILTER']
-        QUnit.config.filter = process.env['filter']
 
       QUnit.testStart ({name}) ->
         currentFailureQueue = failures[name] = []
