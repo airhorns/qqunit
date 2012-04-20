@@ -33,7 +33,7 @@ module.exports = Runner =
           currentFailureQueue.push arguments[0]
 
       QUnit.testDone ({name, failed, passed, total}) ->
-        process.stdout.write if failed > 0 then "F" else "."
+        process.stdout.write(if failed > 0 then "F" else ".")
 
       QUnit.done (stats) ->
         endTime = (new Date).getTime()

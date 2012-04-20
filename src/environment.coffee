@@ -6,7 +6,7 @@ global.document = window.document
 window.setTimeout = global.setTimeout
 window.clearTimeout = global.clearTimeout
 
-{QUnit} = require '../qunit/qunit/qunit'
+QUnit = require '../qunit/qunit/qunit'
 QUnit.config.autostart = false
 QUnit.stop()
 
