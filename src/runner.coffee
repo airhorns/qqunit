@@ -27,10 +27,17 @@ module.exports = Runner =
       QUnit.testStart ({name}) ->
         currentFailureQueue = failures[name] = []
 
-      QUnit.log ({result, expected, actual, message}) ->
-        if !result
-          arguments[0].message ||= "Expected #{expected}, got #{actual}"
-          currentFailureQueue.push arguments[0]
+      QUnit.log (details) ->
+        if !details.result
+          output = if details.message then details.message + ", " else ""
+          if details.actual
+            output += "expected: #{details.expected}, actual: #{details.actual}"
+
+          if details.source
+            output += "\n #{details.source}"
+
+          details.message = output
+          currentFailureQueue.push details
 
       QUnit.testDone ({name, failed, passed, total}) ->
         process.stdout.write(if failed > 0 then "F" else ".")
