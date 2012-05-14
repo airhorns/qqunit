@@ -2,7 +2,7 @@
   "author": "Harry Brundage <harry.brundage@jadedpixel.com>",
   "name": "qqunit",
   "description": "Testing for sad people",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "homepage": "http://github.com/hornairs/qqunit",
   "repository": {
     "type": "git",
@@ -23,5 +23,6 @@
   },
   "devDependencies": {
     "muffin": "~> 0.5"
-  }
+  },
+  "optionalDependencies": {}
 }
