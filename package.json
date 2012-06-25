@@ -2,7 +2,7 @@
   "author": "Harry Brundage <harry.brundage@jadedpixel.com>",
   "name": "qqunit",
   "description": "Testing for sad people",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage": "http://github.com/hornairs/qqunit",
   "repository": {
     "type": "git",
@@ -16,13 +16,13 @@
     "test": "cake test"
   },
   "engines": {
-    "node": "0.6.x || 0.7.x"
+    "node": "~>0.6.0 || ~>0.8.0"
   },
   "dependencies": {
-    "jsdom": "0.2.10"
+    "jsdom": "~> 0.2.14"
   },
   "devDependencies": {
-    "muffin": "~> 0.5"
+    "muffin": "~> 0.6"
   },
   "optionalDependencies": {}
 }
