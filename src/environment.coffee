@@ -1,6 +1,6 @@
 {jsdom} = require 'jsdom'
 
-window = jsdom("<html><head><script></script></head><body></body></html>").createWindow()
+window = jsdom("<html><head><script></script></head><body><div id='qunit-fixture'></div></body></html>").createWindow()
 global.window = window
 global.document = window.document
 window.setTimeout = global.setTimeout
