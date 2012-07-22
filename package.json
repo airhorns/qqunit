@@ -22,7 +22,7 @@
     "jsdom": "~> 0.2.14"
   },
   "devDependencies": {
-    "muffin": "~> 0.6"
+    "muffin": "~> 0.6.1"
   },
   "optionalDependencies": {}
 }

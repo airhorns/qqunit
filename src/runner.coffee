@@ -1,11 +1,11 @@
 Environment = require './environment'
 
-
 # Require coffee-script so the requiring of the test files below
 # will work if they are coffee files.
 try
   require 'coffee-script'
 catch e
+
 
 module.exports = Runner =
   run: (files, callback) ->
@@ -23,8 +23,15 @@ module.exports = Runner =
 
       failures = {}
       currentFailureQueue = false
+      ongoingTest = false
+
+      process.on 'exit', ->
+        if ongoingTest
+          console.warn " - Failure in #{QUnit.config.current.testName}: Never finished!"
+          process.exit 1
 
       QUnit.testStart ({name}) ->
+        ongoingTest = true
         currentFailureQueue = failures[name] = []
 
       QUnit.log (details) ->
@@ -41,6 +48,7 @@ module.exports = Runner =
 
       QUnit.testDone ({name, failed, passed, total}) ->
         process.stdout.write(if failed > 0 then "F" else ".")
+        ongoingTest = false
 
       QUnit.done (stats) ->
         endTime = (new Date).getTime()
