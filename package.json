@@ -16,13 +16,13 @@
     "test": "cake test"
   },
   "engines": {
-    "node": "~>0.6.0 || ~>0.8.0"
+    "node": "~>0.8.0 || ~> 0.10.0"
   },
   "dependencies": {
-    "jsdom": "~> 0.2.14"
+    "jsdom": "~> 0.6.1"
   },
   "devDependencies": {
-    "muffin": "~> 0.6.1"
+    "muffin": "~> 0.9.0"
   },
   "optionalDependencies": {}
 }
